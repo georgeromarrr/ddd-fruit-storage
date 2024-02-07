@@ -19,7 +19,7 @@ Before you begin, ensure you have met the following requirements:
 * You have `MongoDB` installed on your machine
 * You have installed the latest `node` and `npm` verions
 
-## Installation
+## Getting started
 
 ```sh
 # Clone this repository
@@ -36,6 +36,18 @@ $ npm start
 
 # Run the test
 $ npm test
+```
+
+## Development
+
+Still under development
+
+```sh
+# to check cron job functionalities
+$ git branch cronjob_dev
+
+# run the app development
+$ npm run dev
 ```
 
 ## Using GraphQL
