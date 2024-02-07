@@ -1,0 +1,21 @@
+
+{
+  "testEnvironment": "node",
+  "setupFiles": ["tsconfig-paths/register"],
+  "moduleNameMapper": {
+    "^@app/(.*)$": "<rootDir>/src/app/$1",
+    "^@domain/(.*)$": "<rootDir>/src/domain/$1",
+    "^@infra/(.*)$": "<rootDir>/src/infra/$1"
+  },
+  "testMatch": [
+    "**/query.test.js",
+    "**/createFruit.test.js",
+    "**/storeFruit.test.js",
+    "**/removeFruit.test.js",
+    "**/updateFruit.test.js",
+    "**/deleteFruit.test.js"
+  ],
+  "maxWorkers": 1,
+  "verbose": true,
+  "silent": true
+}
