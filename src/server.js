@@ -1,12 +1,11 @@
 require("dotenv").config();
 
+const CronJobScheduler = require("@domain/services/cron/CronJob");
+const NewFruitEvent = require("@app/services/cron/CreatedFruits");
 const MongoDB = require("@infra/database");
 const ApolloServer = require("@infra/http/ApolloServer");
+const CronServices = require("@app/services/cron");
 
-// server.listen({ port: 3005 }, async () => {
-//   await connectToMongoDB();
-//   console.log("GraphQL API ready at: http://localhost:3005");
-// });
 const SERVER_PORT = process.env.SERVER_PORT || "3000";
 
 const SERVER = async () => {
@@ -14,6 +13,14 @@ const SERVER = async () => {
     await new MongoDB().connect();
 
     const server = new ApolloServer();
+
+    new CronJobScheduler(async () => {
+      try {
+        await new CronServices().process();
+      } catch (error) {
+        console.error("Error occurred while retrieving events:", error);
+      }
+    });
 
     server.listen({ port: SERVER_PORT }, (err) => {
       if (err) {

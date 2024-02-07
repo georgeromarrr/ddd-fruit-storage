@@ -1,5 +1,4 @@
 const Model = require("@infra/database/models");
-const { Check } = require("@infra/utils");
 const Map = require("@domain/mappers");
 
 class UpdateFruit {

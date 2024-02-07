@@ -162,7 +162,6 @@ describe("Update Fruit Test suites", () => {
           });
           const res = await toPromise(fruit);
 
-          console.log({ exB: res.data.storeFruitToFruitStorage.message });
           expect(res.data.storeFruitToFruitStorage.status).toBe("success");
           expect(res.data.storeFruitToFruitStorage.message).not.toBeEmpty();
           expect(res.data.storeFruitToFruitStorage.data).not.toBeEmpty();
@@ -238,7 +237,6 @@ describe("Update Fruit Test suites", () => {
         });
         const res = await toPromise(fruit);
 
-        console.log({ hoem: res.data.updateFruitForFruitStorage.message });
         expect(res.data.updateFruitForFruitStorage.status).toBe("success");
         expect(res.data.updateFruitForFruitStorage.message).not.toBeEmpty();
         expect(res.data.updateFruitForFruitStorage.data).not.toBeEmpty();
@@ -360,8 +358,6 @@ describe("Update Fruit Test suites", () => {
       beforeAll(async () => {
         const fruitModelData = await Model.Fruit.findById(createdFruitData[0].id).exec();
         fruitData = fruitModelData;
-
-        console.log("fruitData", fruitData);
       });
 
       test("Fruit event update_id is available", async () => {
@@ -384,8 +380,6 @@ describe("Update Fruit Test suites", () => {
         beforeAll(async () => {
           const fruitModelData = await Model.Event.findById(fruitData.event.update_id).exec();
           fruitEvent = fruitModelData;
-
-          console.log("fruitDataEve", fruitData);
         });
 
         test("Verify the result of payload id is the same as updated fruit", async () => {
@@ -470,8 +464,6 @@ describe("Update Fruit Test suites", () => {
         beforeAll(async () => {
           const fruitModelData = await Model.Event.findById(fruitData.event.update_id).exec();
           fruitEvent = fruitModelData;
-
-          console.log("fruitDataEve", fruitData);
         });
 
         test("Verify the result of payload id is the same as updated fruit", async () => {

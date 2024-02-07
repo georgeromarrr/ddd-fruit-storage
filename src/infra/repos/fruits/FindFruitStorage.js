@@ -4,7 +4,7 @@ const Map = require("@domain/mappers");
 class FindFruitStorage {
   async find() {
     try {
-      const fruitStorage = await Model.Fruit.find().lean();
+      const fruitStorage = await Model.Fruit.find().lean().exec();
 
       if (fruitStorage.length <= 0) {
         throw new Error(`Storage empty. Currently no stored fruits.`);

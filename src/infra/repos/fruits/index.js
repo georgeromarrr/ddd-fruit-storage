@@ -4,6 +4,7 @@ const FindFruit = require("./FindFruit");
 const FindFruitStorage = require("./FindFruitStorage");
 const UpdateFruit = require("./UpdateFruit");
 const DeleteFruit = require("./DeleteFruit");
+const SearchFruit = require("./SearchFruit");
 
 class FruitRepo {
   constructor() {
@@ -12,6 +13,11 @@ class FruitRepo {
     this.CreateFruit = new CreateFruit();
     this.UpdateFruit = new UpdateFruit();
     this.DeleteFruit = new DeleteFruit();
+    this.SearchFruit = new SearchFruit();
+  }
+
+  searchFruit(filter) {
+    return this.SearchFruit.execute(filter);
   }
 
   findFruitStorage() {

@@ -240,7 +240,6 @@ describe("Create Fruit Test suites", () => {
 
             beforeAll(async () => {
               const fruitModelData = await Model.Event.findById(fruitData.event.create_id).exec();
-              console.log("eve", fruitModelData);
               fruitEvent = fruitModelData;
             });
 
