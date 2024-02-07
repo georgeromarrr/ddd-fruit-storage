@@ -16,7 +16,8 @@
 
 Before you begin, ensure you have met the following requirements:
 <!--- These are just example requirements. Add, duplicate or remove as required --->
-* You have installed the latest `MongoDB`
+* You have `MongoDB` installed on your machine
+* You have installed the latest `node` and `npm` verions
 
 ## Installation
 
