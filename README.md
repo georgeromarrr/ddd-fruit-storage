@@ -15,7 +15,7 @@
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
-<!--- These are just example requirements. Add, duplicate or remove as required --->
+
 * You have `MongoDB` installed on your machine
 * You have installed the latest `node` and `npm` verions
 
@@ -28,11 +28,141 @@ $ git clone https://github.com/georgeromarrr/ddd-fruit-storage.git
 # Install dependencies
 $ npm install
 
+# Run the app development
+$ npm run dev
+
 # Run the app
 $ npm start
 
 # Run the test
 $ npm test
+```
+
+## Using GraphQL
+
+To interact with the API, use these queries and mutations:
+
+* GetFruitStorage
+
+```
+query GetFruitStorage {
+  getFruitStorage {
+    status
+    message
+    data {
+      id
+      name
+      description
+      amount
+      limitOfFruitToBeStored
+    }
+  }
+}
+```
+
+* FindFruit
+
+```
+query FindFruit($name: String!) {
+  findFruit(name: $name) {
+    status
+    message
+    data {
+      id
+      name
+      description
+      amount
+      limitOfFruitToBeStored
+    }
+  }
+}
+```
+
+* CreateFruit
+
+```
+mutation CreateFruitForFruitStorage($name: String!, $description: String, $limitOfFruitToBeStored: Int) {
+  createFruitForFruitStorage(name: $name, description: $description, limitOfFruitToBeStored: $limitOfFruitToBeStored) {
+    status
+    message
+    data {
+      id
+      name
+      description
+      amount
+      limitOfFruitToBeStored
+    }
+ 
+  }
+}
+```
+* StoreFruit
+
+```
+mutation StoreFruitToFruitStorage($name: String!, $amount: Int) {
+  storeFruitToFruitStorage(name: $name, amount: $amount) {
+    status
+    message
+    data {
+      id
+      name
+      description
+      amount
+      limitOfFruitToBeStored
+    }
+  }
+}
+```
+* RemoveFruit
+
+```
+mutation RemoveFruitFromFruitStorage($name: String!, $amount: Int) {
+  removeFruitFromFruitStorage(name: $name, amount: $amount) {
+    data {
+      id
+      name
+      description
+      amount
+      limitOfFruitToBeStored
+    }
+    message
+    status
+  }
+}
+```
+* UpdateFruit
+
+```
+mutation UpdateFruitForFruitStorage($name: String!, $description: String, $limitOfFruitToBeStored: Int) {
+  updateFruitForFruitStorage(name: $name, description: $description, limitOfFruitToBeStored: $limitOfFruitToBeStored) {
+    status
+    message
+    data {
+      id
+      name
+      description
+      amount
+      limitOfFruitToBeStored
+    }
+  }
+}
+```
+* DeleteFruit
+
+```
+mutation DeleteFruitFromFruitStorage($name: String!, $forceDelete: Boolean) {
+  deleteFruitFromFruitStorage(name: $name, forceDelete: $forceDelete) {
+    status
+    message
+    data {
+      id
+      name
+      description
+      amount
+      limitOfFruitToBeStored
+    }
+  }
+}
 ```
 
 
